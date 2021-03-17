@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import "../../styles/home.scss";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
-import Mapa from "../component/mapa";
 import Comentarios from "../component/disqus";
 import Comment from "../component/comment";
 
@@ -37,7 +36,6 @@ const PymeProfile = ({ entity }) => {
 						<p>{entity.descripcion}</p>
 					</div>
 					<div className="row" />
-					<Mapa />
 					<div className="col-sm-12 col-md-4">
 						<img
 							className="card-img-top"
@@ -92,7 +90,7 @@ const PymeProfile = ({ entity }) => {
 							<div className="d-inline font-italic">
 								<h5>
 									<a target="_blank" rel="noopener noreferrer" href={entity.sitio_web}>
-										website
+										Visita nuestra website
 									</a>
 								</h5>
 							</div>

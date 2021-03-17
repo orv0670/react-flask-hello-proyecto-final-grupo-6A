@@ -19,12 +19,28 @@ export const Recuperar = () => {
 			<form style={{ width: "400px" }}>
 				<h1 style={{ paddingBottom: "60px" }}>Recupera la contraseña</h1>
 				<div className="form-floating mb-3">
-					<h5>Pregunta de seguridad</h5>
+					<h5>Ingresa aquí el correo electrónico</h5>
 					<input
 						type="fullName"
 						className="form-control"
 						id="floatingInput"
-						placeholder="¿Cuál era el nombre de tu primera mascota?"
+						placeholder="Correo electrónico"
+					/>
+				</div>
+				<div className="form-group">
+					<h5 htmlFor="exampleFormControlSelect1">Pregunta de seguridad</h5>
+					<select className="form-control" id="exampleFormControlSelect1">
+						<option />
+						<option>¿Cuál era el nombre de tu primera mascota?</option>
+					</select>
+				</div>
+				<div className="form-floating mb-3">
+					<h5>Ingrese su respuesta</h5>
+					<input
+						type="fullName"
+						className="form-control"
+						id="floatingInput"
+						placeholder="Ejemplo: Scooby doo"
 					/>
 				</div>
 				<input type="submit" className="btn btn-primary" style={{ width: "400px" }} value="Enviar respuesta" />
