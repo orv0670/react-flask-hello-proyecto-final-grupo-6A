@@ -37,7 +37,7 @@ const PymeProfile = ({ entity }) => {
 					<div className="col-sm-12 col-md-8">
 						<p>{entity.descripcion}</p>
 					</div>
-					<div className="col-sm-12 col-md-4 col-lg-2">
+					<div className="col-sm-12 col-md-4 col-lg-4">
 						<MapContainer />
 					</div>
 				</div>
