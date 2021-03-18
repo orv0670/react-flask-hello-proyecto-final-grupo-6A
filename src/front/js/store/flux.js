@@ -29,6 +29,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						return setStore({ pymes: data });
 					});
+				console.log(getStore().pymes);
 			},
 			fetchEntity: id => {
 				fetch(`https://3001-aquamarine-cat-14f9pgld.ws-us03.gitpod.io/api/pymes/${id}`)
