@@ -86,7 +86,7 @@ const PymeProfile = ({ entity }) => {
 							<div className="d-inline font-italic">
 								<h5>
 									<a target="_blank" rel="noopener noreferrer" href={entity.sitio_web}>
-										website
+										Visita nuestra website
 									</a>
 								</h5>
 							</div>
@@ -130,5 +130,6 @@ export const PymeView = () => {
 };
 
 PymeProfile.propTypes = {
-	pymes: PropTypes.object
+	pymes: PropTypes.object,
+	entity: PropTypes.object
 };
