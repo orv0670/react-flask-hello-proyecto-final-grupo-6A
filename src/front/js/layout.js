@@ -11,7 +11,7 @@ import { ViewPassport } from "./pages/viewPassport";
 
 import { PymeView } from "./pages/viewPyme";
 import { Comment } from "./component/comment";
-import { Jumbotron } from "./component/jumbotron";
+import { CarruseldeVista } from "./component/carruseldeVista";
 import { Barra } from "./component/barra";
 import { Footer } from "./component/footer";
 import MapContainer from "./component/mapa";
