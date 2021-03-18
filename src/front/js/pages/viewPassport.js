@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Carrusel } from "../component/carrusel";
 import { Card } from "../component/Card";
 
