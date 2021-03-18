@@ -11,7 +11,7 @@ const PlayasCard = ({ item }) => {
 			<h3 className="card-title pt-3 text-left">{item.name}</h3>
 
 			<div className="d-flex mb-3">
-				<div className="d-inline mr-3 ">
+				<div className="d-inline mr-2 ">
 					<i className="fas fa-map-pin " />
 				</div>
 				<div className="d-inline text-left font-italic">

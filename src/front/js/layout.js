@@ -7,13 +7,14 @@ import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { Recuperar } from "./pages/recuperar";
 import { NewPassword } from "./pages/newPassword";
+import { ViewPassport } from "./pages/viewPassport";
 
 import { PymeView } from "./pages/viewPyme";
 import { Comment } from "./component/comment";
 import { Jumbotron } from "./component/jumbotron";
 import { Barra } from "./component/barra";
 import { Footer } from "./component/footer";
-import Mapa from "./component/mapa";
+import MapContainer from "./component/mapa";
 
 //create your first component
 const Layout = () => {
@@ -33,6 +34,9 @@ const Layout = () => {
 					</Route>
 					<Route exact path="/viewPyme/:id">
 						<PymeView />
+					</Route>
+					<Route exact path="/viewPassport">
+						<ViewPassport />
 					</Route>
 					<div
 						style={{
