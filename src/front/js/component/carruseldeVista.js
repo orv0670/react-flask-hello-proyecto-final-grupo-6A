@@ -71,7 +71,7 @@ const Montana = () => {
 };
 
 export const CarruseldeVista = ({ type }) => (
-	<div id="select1" className="d-block w-200">
+	<div id="select1" className="w-200">
 		{type === "playa" ? <Playa /> : <Montana />}
 	</div>
 );

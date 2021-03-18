@@ -24,7 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//reset the global store
 
 			loadPymeData: () => {
-				fetch("https://3001-aquamarine-cat-14f9pgld.ws-us03.gitpod.io/api/pymes")
+				fetch("https://3001-amethyst-vulture-54l7amqw.ws-us03.gitpod.io/api/pymes")
 					.then(res => res.json())
 					.then(data => {
 						return setStore({ pymes: data });
@@ -32,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(getStore().pymes);
 			},
 			fetchEntity: id => {
-				fetch(`https://3001-aquamarine-cat-14f9pgld.ws-us03.gitpod.io/api/pymes/${id}`)
+				fetch(`https://3001-amethyst-vulture-54l7amqw.ws-us03.gitpod.io/api/pymes/${id}`)
 					.then(res => res.json())
 					.then(data => {
 						return setStore({ pymeEntity: data });

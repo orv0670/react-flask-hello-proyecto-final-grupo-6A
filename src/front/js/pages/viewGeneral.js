@@ -22,9 +22,9 @@ export function ViewGeneral() {
 	);
 
 	return (
-		<div className="d-block w-200">
+		<div className="text-center container-fluid">
 			<CarruseldeVista type={type} />
-			<div>
+			<div className="row px-1 my-5">
 				{data.map((value, index) => {
 					return (
 						<div className="col-sm-12 col-md-4 col-lg-3 my-2" key={index}>
