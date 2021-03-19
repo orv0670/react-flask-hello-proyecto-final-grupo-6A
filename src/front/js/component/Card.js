@@ -8,7 +8,7 @@ const PlayasCard = ({ item }) => {
 	return (
 		<>
 			<img style={{ maxHeight: "220px" }} className="card-img-top" src={item.imagen} alt={item.categoria} />
-			<h3 className="card-title pt-3 text-left">{item.name}</h3>
+			<h4 className="card-title pt-3 text-left">{item.name}</h4>
 
 			<div className="d-flex mb-3">
 				<div className="d-inline mr-2 ">
