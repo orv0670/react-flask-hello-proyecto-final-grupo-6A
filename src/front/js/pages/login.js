@@ -19,7 +19,7 @@ export const Login = () => {
 		// FETCH
 		const data = { email: email, password: password };
 
-		fetch("https://3001-aquamarine-cat-14f9pgld.ws-us03.gitpod.io/api/login", {
+		fetch(process.env.BACKEND_URL + "/api/login", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"

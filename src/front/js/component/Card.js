@@ -7,15 +7,22 @@ import Heart from "react-animated-heart";
 const PlayasCard = ({ item }) => {
 	return (
 		<>
-			<img style={{ maxHeight: "220px" }} className="card-img-top" src={item.imagen} alt={item.categoria} />
-			<h3 className="card-title pt-3 text-left">{item.name}</h3>
+			<img
+				style={{ maxHeight: "220px", minHeight: "220px" }}
+				className="card-img-top"
+				src={item.imagen}
+				alt={item.categoria}
+			/>
+			<div style={{ maxHeight: "100px", minHeight: "100px" }}>
+				<h5 className="card-title pt-3 pb-2 text-left">{item.name}</h5>
 
-			<div className="d-flex mb-3">
-				<div className="d-inline mr-2 ">
-					<i className="fas fa-map-pin " />
-				</div>
-				<div className="d-inline text-left font-italic">
-					<h6>{item.provincia}, Costa Rica</h6>
+				<div className="d-flex mb-3">
+					<div className="d-inline mr-2 ">
+						<i className="fas fa-map-pin " />
+					</div>
+					<div className="d-inline text-left font-italic">
+						<h6>{item.provincia}, Costa Rica</h6>
+					</div>
 				</div>
 			</div>
 		</>

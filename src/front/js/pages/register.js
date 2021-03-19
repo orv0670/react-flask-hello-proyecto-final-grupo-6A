@@ -25,7 +25,7 @@ export const Register = () => {
 			nombre_completo: nombre_completo,
 			respuesta_de_seguridad: respuesta_de_seguridad
 		};
-		fetch("https://3001-aquamarine-cat-14f9pgld.ws-us03.gitpod.io/api/registro", {
+		fetch(process.env.BACKEND_URL + "/api/registro", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"

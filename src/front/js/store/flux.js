@@ -23,14 +23,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//reset the global store
 
 			loadPymeData: () => {
-				fetch("https://3001-yellow-weasel-0pjzlr4s.ws-us03.gitpod.io/api/pymes")
+				fetch(process.env.BACKEND_URL + "/api/pymes")
 					.then(res => res.json())
 					.then(data => {
 						return setStore({ pymes: data });
 					});
 			},
 			fetchEntity: id => {
-				fetch(`https://3001-yellow-weasel-0pjzlr4s.ws-us03.gitpod.io/api/pymes/${id}`)
+				fetch(process.env.BACKEND_URL + `/api/pymes/${id}`)
 					.then(res => res.json())
 					.then(data => {
 						return setStore({ pymeEntity: data });

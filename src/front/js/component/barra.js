@@ -49,15 +49,19 @@ export function Barra() {
 						</Link>
 					</Navbar.Text>
 				</Button>
-				<Button style={{ marginLeft: 10 }} variant="outline-light">
-					<Navbar.Text>
-						<Link to="/login">
-							<a style={{ color: "#090a" }} href="#login">
-								Logout
-							</a>
-						</Link>
-					</Navbar.Text>
-				</Button>
+				{location.pathname == "/home" ? (
+					<Button style={{ marginLeft: 10 }} variant="outline-light">
+						<Navbar.Text>
+							<Link to="/login">
+								<a style={{ color: "#090a" }} href="#login">
+									Logout
+								</a>
+							</Link>
+						</Navbar.Text>
+					</Button>
+				) : (
+					""
+				)}
 			</Navbar.Collapse>
 		</Navbar>
 	);
