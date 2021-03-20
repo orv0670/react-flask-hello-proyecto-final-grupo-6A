@@ -9,7 +9,9 @@ export function Carrusel() {
 	return (
 		<Carousel id="carrusel" className="d-block w-200">
 			<Carousel.Item>
-				<img className="d-block w-100" src={cr} style={{ height: "550px" }} alt="Costa Rica" />
+				<Link to="/register">
+					<img className="d-block w-100" src={cr} style={{ height: "550px" }} alt="Costa Rica" />
+				</Link>
 				<Carousel.Caption />
 			</Carousel.Item>
 

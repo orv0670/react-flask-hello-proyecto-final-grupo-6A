@@ -7,7 +7,7 @@ import { ComponenteInf } from "../component/ComponentInf";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
-
+	console.log(store.location);
 	return (
 		<div>
 			<div>

@@ -14,7 +14,7 @@ const PlayasCard = ({ item }) => {
 				alt={item.categoria}
 			/>
 			<div style={{ maxHeight: "100px", minHeight: "100px" }}>
-				<h5 className="card-title pt-3 pb-2 text-left">{item.name}</h5>
+				<h4 className="card-title pt-3 pb-2 text-left">{item.name}</h4>
 
 				<div className="d-flex mb-3">
 					<div className="d-inline mr-2 ">
