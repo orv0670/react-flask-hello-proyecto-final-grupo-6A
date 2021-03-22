@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useMemo } from "react";
-import { Carrusel } from "../component/carrusel";
+import { Advertisement } from "../component/advertisement";
 import { Card } from "../component/Card";
 import { Context } from "../store/appContext";
 
@@ -31,8 +31,12 @@ export const ViewPassport = () => {
 	return (
 		<div>
 			<div style={{ width: "100%" }}>
-				<Carrusel />
+				<Advertisement />
 			</div>
+			<div className="m-3">
+				<h1>Colección de Sellos</h1>
+			</div>
+			<hr />
 			<div>
 				<div className="row px-1 my-5">
 					{passport.map((value, index) => {

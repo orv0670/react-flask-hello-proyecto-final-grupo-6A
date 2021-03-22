@@ -54,10 +54,7 @@ export function Barra() {
 				</Button>
 				{isLoggedIn ? (
 					<Dropdown>
-						<Dropdown.Toggle
-							variant="success"
-							id="dropdown-basic"
-							style={{ width: "145px", marginRight: "33px" }}>
+						<Dropdown.Toggle variant="" id="dropdown-basic" style={{ width: "145px", marginRight: "33px" }}>
 							<i className="fas fa-user mr-2" />
 							{store.userName}
 						</Dropdown.Toggle>
