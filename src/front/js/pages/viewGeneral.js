@@ -28,7 +28,7 @@ export function ViewGeneral() {
 				{data.map((value, index) => {
 					return (
 						<div className="col-sm-12 col-md-4 col-lg-3 my-2" key={index}>
-							<Card item={value} type={type} />
+							<Card item={value} type={type} addToPassport={storeContext.actions.addToPassport} />
 						</div>
 					);
 				})}
