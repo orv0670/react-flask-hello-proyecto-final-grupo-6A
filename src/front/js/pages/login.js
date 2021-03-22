@@ -7,7 +7,7 @@ export const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [redirect, setRedirect] = useState(false);
-	//const { store, actions } = useContext(Context);
+	const { actions } = useContext(Context);
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -31,6 +31,7 @@ export const Login = () => {
 				console.log("Exito:", data);
 				sessionStorage.setItem("u_token", data.token);
 				sessionStorage.setItem("user_id", data.user.id);
+				actions.setUserName(data.user.nombre_completo);
 				//actions.getFavoritos();
 				setRedirect(true);
 			})

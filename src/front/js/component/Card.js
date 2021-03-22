@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { useState } from "react";
 import Heart from "react-animated-heart";
 
 const PlayasCard = ({ item }) => {
@@ -29,8 +28,22 @@ const PlayasCard = ({ item }) => {
 	);
 };
 
-export const Card = ({ type, item }) => {
+export const Card = ({ type, item, addToPassport, showHeart = true, showDelete, onDelete }) => {
 	const [isClick, setClick] = useState(false);
+	const onHeartClick = useCallback(
+		() => {
+			const user_id = sessionStorage.getItem("user_id");
+			setClick(!isClick);
+			addToPassport(user_id, item.id);
+		},
+		[addToPassport, setClick]
+	);
+	const onDeleteClick = useCallback(
+		() => {
+			onDelete(item.id);
+		},
+		[item, onDelete]
+	);
 
 	return (
 		<div className="card my-2" style={{ minWidth: "180px", maxWidth: "440px" }}>
@@ -40,9 +53,12 @@ export const Card = ({ type, item }) => {
 					<Link className="btn btn-sm btn-outline-primary" data-toggle="popover" to={`/viewPyme/${item.id}`}>
 						Learn more
 					</Link>
-					<div className="Card">
-						<Heart isClick={isClick} onClick={() => setClick(!isClick)} />
-					</div>
+					<div className="Card">{showHeart && <Heart isClick={isClick} onClick={onHeartClick} />}</div>
+					{showDelete && (
+						<div>
+							<i className="far fa-trash-alt" onClick={onDeleteClick} />
+						</div>
+					)}
 				</div>
 			</div>
 		</div>
@@ -51,7 +67,11 @@ export const Card = ({ type, item }) => {
 
 Card.propTypes = {
 	type: PropTypes.string,
-	item: PropTypes.object
+	item: PropTypes.object,
+	addToPassport: PropTypes.func,
+	showHeart: PropTypes.bool,
+	showDelete: PropTypes.bool,
+	onDelete: PropTypes.func
 };
 
 PlayasCard.propTypes = {

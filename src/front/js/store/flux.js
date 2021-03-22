@@ -4,7 +4,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			message: null,
 			pymes: [],
 			location: [],
-			pymeEntity: {}
+			pymeEntity: {},
+			myPassport: [],
+			userName: ""
 		},
 
 		actions: {
@@ -48,6 +50,62 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ location: data });
 						console.log(data);
 					});
+			},
+			addToPassport: (user_id, id_pyme) => {
+				const body = {
+					user_id: Number(user_id),
+					id_pyme
+				};
+				fetch(process.env.BACKEND_URL + "/api/users/mi_pasaporte", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + sessionStorage.getItem("u_token")
+					},
+					body: JSON.stringify(body)
+				})
+					.then(res => res.json())
+					.then(data => {
+						console.log("data", data);
+						//return setStore({ myPassport: [...store.myPassport, { user_id, id_pyme }] });
+					});
+			},
+			deleteFromPassport: id_pyme => {
+				const user_id = sessionStorage.getItem("user_id");
+				fetch(process.env.BACKEND_URL + `/api/mi_pasaporte/${user_id}/${id_pyme}`, {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + sessionStorage.getItem("u_token")
+					}
+				})
+					.then(res => res.json())
+					.then(data => {
+						console.log("data", data);
+						const store = getStore();
+						const myPassport = store.myPassport.filter(item => item.id_pyme !== id_pyme);
+						setStore({ myPassport });
+						//return setStore({ myPassport: [...store.myPassport, { user_id, id_pyme }] });
+					});
+			},
+			loadPassport: () => {
+				const user_id = sessionStorage.getItem("user_id");
+				fetch(process.env.BACKEND_URL + `/api/mi_pasaporte/${user_id}`, {
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + sessionStorage.getItem("u_token")
+					}
+				})
+					.then(res => res.json())
+					.then(data => {
+						return setStore({ myPassport: data });
+					});
+			},
+			setUserName: userName => {
+				setStore({ userName });
+			},
+			clearUserName: () => {
+				setStore({ userName: "", myPassport: [] });
 			}
 		}
 	};
