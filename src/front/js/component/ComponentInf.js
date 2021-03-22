@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Media, Jumbotron, Container } from "react-bootstrap";
+import { Media, Container } from "react-bootstrap";
 import titulo from "../../img/titulo.png";
 import jumbo from "../../img/jumbo.png";
 import uno from "../../img/uno.png";
@@ -15,12 +15,7 @@ export const ComponenteInf = () => {
 			<br />
 			<br />
 			<br />
-			<Jumbotron fluid id="jumbo">
-				<Container>
-					<img src={jumbo} height="300px" width="1080px" />
-					<p>This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-				</Container>
-			</Jumbotron>
+
 			<br />
 			<Media id="caja">
 				<img src={uno} height="300px" width="300px" className="mr-3 rounded-circle" alt="Generic placeholder" />

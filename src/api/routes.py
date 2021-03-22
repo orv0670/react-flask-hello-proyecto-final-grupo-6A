@@ -2,16 +2,16 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint, json
+from flask_cors import CORS
 from api.models import db, User, Pymes, Mi_pasaporte
 from api.utils import generate_sitemap, APIException
 import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_cors import CORS, cross_origin
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 
 api = Blueprint('api', __name__)
-
-CORS(api) # This will enable CORS for all routes
+# Allow CORS requests to this API
+CORS(api, resources={r"/*": {"origins": "*"}})
 
 #bloque de GET's
 @api.route('/users', methods=['GET'])
@@ -64,11 +64,11 @@ def profile():
         return jsonify({"success": "Acceso a espacio privado", "usuario": token}), 200
 
 #bloque de POST's
-@api.route('users/mi_pasaporte/', methods=['POST'])
+@api.route('/users/mi_pasaporte/', methods=['POST'])
 @jwt_required()
 def agregar_mi_pasaporte():
     request_body = request.get_json()
-    mi_pasaporte = Mi_pasaporte(user_id = request_body["user_id"], name = request_body["name"], tipo_pymes = request_body["tipo_pymes"])
+    mi_pasaporte = Mi_pasaporte(user_id = request_body["user_id"], id_pyme = request_body["id_pyme"])
     db.session.add(mi_pasaporte)
     db.session.commit()
     return jsonify({"msg": "el favorito se ha agregado con exito"}), 200
@@ -142,10 +142,10 @@ def login():
         return jsonify(data), 200
 
 #bloque de metodo DELETE
-@api.route('/mi_pasaporte/<int:user_id>/<name>', methods=['DELETE'])
+@api.route('/mi_pasaporte/<int:user_id>/<id_pyme>', methods=['DELETE'])
 @jwt_required()
-def borrar_mi_pasaporte(user_id, name):
-    favorito = Mi_pasaporte.query.filter_by(user_id = user_id, name = name).first()
+def borrar_mi_pasaporte(user_id, id_pyme):
+    favorito = Mi_pasaporte.query.filter_by(user_id = user_id, id_pyme = id_pyme).first()
     if favorito is None:
         raise APIException('favorito no encontrado', status_code=404)
     db.session.delete(favorito)
