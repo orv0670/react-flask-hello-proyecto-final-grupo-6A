@@ -1,6 +1,6 @@
 import React, { useContext, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Button } from "react-bootstrap";
+import { Navbar, Button, Dropdown } from "react-bootstrap";
 import logo from "../../img/logo.png";
 import { Context } from "../store/appContext";
 
@@ -53,14 +53,20 @@ export function Barra() {
 					</Navbar.Text>
 				</Button>
 				{isLoggedIn ? (
-					<Button style={{ marginLeft: 10 }} variant="outline-light">
-						<span>{store.userName}</span>
-						<Navbar.Text>
+					<Dropdown>
+						<Dropdown.Toggle
+							variant="success"
+							id="dropdown-basic"
+							style={{ width: "145px", marginRight: "33px" }}>
+							<i className="fas fa-user mr-2" />
+							{store.userName}
+						</Dropdown.Toggle>
+						<Dropdown.Menu>
 							<Link to="/" onClick={onLogout}>
-								<a style={{ color: "#090a" }}>Logout</a>
+								<Dropdown.Item href="#/action-1">Logout</Dropdown.Item>
 							</Link>
-						</Navbar.Text>
-					</Button>
+						</Dropdown.Menu>
+					</Dropdown>
 				) : (
 					<Button style={{ marginLeft: 10 }} variant="outline-light">
 						<Navbar.Text>

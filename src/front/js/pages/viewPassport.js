@@ -34,19 +34,21 @@ export const ViewPassport = () => {
 				<Carrusel />
 			</div>
 			<div>
-				{passport.map((value, index) => {
-					return (
-						<div className="col-sm-12 col-md-4 col-lg-3 my-2" key={index}>
-							<Card
-								item={value}
-								type={value.type}
-								showHeart={false}
-								onDelete={storeContext.actions.deleteFromPassport}
-								showDelete
-							/>
-						</div>
-					);
-				})}
+				<div className="row px-1 my-5">
+					{passport.map((value, index) => {
+						return (
+							<div className="col-sm-12 col-md-4 col-lg-3 my-2" key={index}>
+								<Card
+									item={value}
+									type={value.type}
+									showHeart={false}
+									onDelete={storeContext.actions.deleteFromPassport}
+									showDelete
+								/>
+							</div>
+						);
+					})}
+				</div>
 			</div>
 		</div>
 	);

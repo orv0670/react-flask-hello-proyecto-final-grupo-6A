@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import cinde from "../../img/cinde.png";
 import micitt from "../../img/micitt.png";
+import { Link } from "react-router-dom";
 
 export const Footer = () => (
 	<div className="card text-center" style={{ background: "rgb(39, 34, 34)", border: "none" }}>
@@ -9,18 +10,22 @@ export const Footer = () => (
 				<div className="container">
 					<div className="row">
 						<div className="col-sm-6 col-md-3 item">
-							<h3>Visita Costa Rica</h3>
+							<h3>Hospedaje</h3>
 							<ul>
-								<li>
-									<a href="#">Playa</a>
-								</li>
-								<li>
-									<a href="#">Montaña</a>
-								</li>
+								<Link to="/viewgeneral/playa">
+									<li>
+										<a>Playa</a>
+									</li>
+								</Link>
+								<Link to="/viewgeneral/montana">
+									<li>
+										<a>Montaña</a>
+									</li>
+								</Link>
 							</ul>
 						</div>
 						<div className="col-sm-6 col-md-3 item">
-							<h3>Pura Vida Passport</h3>
+							<h3>Visita Costa Rica</h3>
 							<ul>
 								<li>
 									<a href="#">Información</a>
