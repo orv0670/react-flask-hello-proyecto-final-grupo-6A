@@ -63,9 +63,8 @@ class Pymes(db.Model):
 class Mi_pasaporte(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    #tipo playa o montaña
-    tipo_pymes = db.Column(db.String(100), unique=False, nullable=False)
-    name = db.Column(db.String(250), unique=False, nullable=False)
+    id_pyme = db.Column(db.Integer, unique=True, nullable=False)
+    #name = db.Column(db.String(250), unique=False, nullable=False)
 
     #id del pyme
 
@@ -76,6 +75,7 @@ class Mi_pasaporte(db.Model):
         return {
             "id": self.id,
             "user_id": self.user_id,
-            "nombre": self.name,
-            "tipo_pymes": self.tipo_pymes
+            "id_pyme": self.id_pyme,
+            #"nombre": self.name,
+            #"tipo_pymes": self.tipo_pymes
         }

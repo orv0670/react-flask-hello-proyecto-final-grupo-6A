@@ -7,7 +7,7 @@ export const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [redirect, setRedirect] = useState(false);
-	//const { store, actions } = useContext(Context);
+	const { actions } = useContext(Context);
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -19,7 +19,7 @@ export const Login = () => {
 		// FETCH
 		const data = { email: email, password: password };
 
-		fetch("https://3001-aquamarine-cat-14f9pgld.ws-us03.gitpod.io/api/login", {
+		fetch(process.env.BACKEND_URL + "/api/login", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -31,6 +31,7 @@ export const Login = () => {
 				console.log("Exito:", data);
 				sessionStorage.setItem("u_token", data.token);
 				sessionStorage.setItem("user_id", data.user.id);
+				actions.setUserName(data.user.nombre_completo);
 				//actions.getFavoritos();
 				setRedirect(true);
 			})

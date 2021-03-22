@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useContext, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Button } from "react-bootstrap";
+import { Navbar, Button, Dropdown } from "react-bootstrap";
 import logo from "../../img/logo.png";
+import { Context } from "../store/appContext";
 
 export function Barra() {
+	const user_id = sessionStorage.getItem("user_id");
+	const user_name = sessionStorage.getItem("name");
+	const { store, actions } = useContext(Context);
+	const isLoggedIn = !!store.userName;
+
+	const onLogout = useCallback(() => {
+		sessionStorage.clear();
+		actions.clearUserName();
+	});
 	return (
 		<Navbar bg="light" variant="light">
 			<Link to="/">
@@ -13,15 +23,17 @@ export function Barra() {
 			</Link>
 			<Navbar.Toggle />
 			<Navbar.Collapse className="justify-content-end">
-				<Button style={{ marginRight: 10 }} variant="outline-light">
-					<Navbar.Text>
-						<Link to="/register">
-							<a style={{ color: "orange" }} href="#login">
-								Regístrate
-							</a>
-						</Link>
-					</Navbar.Text>
-				</Button>
+				{!isLoggedIn && (
+					<Button style={{ marginRight: 10 }} variant="outline-light">
+						<Navbar.Text>
+							<Link to="/register">
+								<a style={{ color: "orange" }} href="#login">
+									Regístrate
+								</a>
+							</Link>
+						</Navbar.Text>
+					</Button>
+				)}
 				<Button variant="outline-lights">
 					<Navbar.Text>
 						<Link to="/">
@@ -40,24 +52,27 @@ export function Barra() {
 						</Link>
 					</Navbar.Text>
 				</Button>
-				<Button style={{ marginLeft: 10 }} variant="outline-light">
-					<Navbar.Text>
-						<Link to="/login">
-							<a style={{ color: "#090a" }} href="#login">
-								Log In
-							</a>
-						</Link>
-					</Navbar.Text>
-				</Button>
-				<Button style={{ marginLeft: 10 }} variant="outline-light">
-					<Navbar.Text>
-						<Link to="/login">
-							<a style={{ color: "#090a" }} href="#login">
-								Logout
-							</a>
-						</Link>
-					</Navbar.Text>
-				</Button>
+				{isLoggedIn ? (
+					<Dropdown>
+						<Dropdown.Toggle variant="" id="dropdown-basic" style={{ width: "145px", marginRight: "33px" }}>
+							<i className="fas fa-user mr-2" />
+							{store.userName}
+						</Dropdown.Toggle>
+						<Dropdown.Menu>
+							<Link to="/" onClick={onLogout}>
+								<Dropdown.Item href="#/action-1">Logout</Dropdown.Item>
+							</Link>
+						</Dropdown.Menu>
+					</Dropdown>
+				) : (
+					<Button style={{ marginLeft: 10 }} variant="outline-light">
+						<Navbar.Text>
+							<Link to="/login">
+								<a style={{ color: "#090a" }}>Log In</a>
+							</Link>
+						</Navbar.Text>
+					</Button>
+				)}
 			</Navbar.Collapse>
 		</Navbar>
 	);
