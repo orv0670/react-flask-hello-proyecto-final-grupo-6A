@@ -43,27 +43,33 @@ export function Barra() {
 						</Link>
 					</Navbar.Text>
 				</Button>
-				<Button style={{ marginLeft: 10 }} variant="outline-light">
-					<Navbar.Text>
-						<Link to="/viewPassport">
-							<a style={{ color: "#090a" }} href="#login">
-								MyPassport
-							</a>
-						</Link>
-					</Navbar.Text>
-				</Button>
+
 				{isLoggedIn ? (
-					<Dropdown>
-						<Dropdown.Toggle variant="" id="dropdown-basic" style={{ width: "145px", marginRight: "33px" }}>
-							<i className="fas fa-user mr-2" />
-							{store.userName}
-						</Dropdown.Toggle>
-						<Dropdown.Menu>
-							<Link to="/" onClick={onLogout}>
-								<Dropdown.Item href="#/action-1">Logout</Dropdown.Item>
-							</Link>
-						</Dropdown.Menu>
-					</Dropdown>
+					<>
+						<Button style={{ marginLeft: 10 }} variant="outline-light">
+							<Navbar.Text>
+								<Link to="/viewPassport">
+									<a style={{ color: "#090a" }} href="#login">
+										MyPassport
+									</a>
+								</Link>
+							</Navbar.Text>
+						</Button>
+						<Dropdown>
+							<Dropdown.Toggle
+								variant=""
+								id="dropdown-basic"
+								style={{ width: "145px", marginRight: "33px" }}>
+								<i className="fas fa-user mr-2" />
+								{store.userName}
+							</Dropdown.Toggle>
+							<Dropdown.Menu>
+								<Link to="/" onClick={onLogout}>
+									<Dropdown.Item href="#/action-1">Logout</Dropdown.Item>
+								</Link>
+							</Dropdown.Menu>
+						</Dropdown>
+					</>
 				) : (
 					<Button style={{ marginLeft: 10 }} variant="outline-light">
 						<Navbar.Text>
