@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 import MapContainer from "../component/mapaPlaya";
 import MapContainer2 from "../component/mapaMontana";
-import Comentarios from "../component/disqus";
 import Comment from "../component/comment";
 
 const PymeProfile = ({ entity }) => {
@@ -98,7 +97,7 @@ const PymeProfile = ({ entity }) => {
 					<iframe className="embed-responsive-item" src={entity.link_youtube} allowFullScreen />
 				</div>
 				<div>
-					<Comentarios />
+					<Comment />
 				</div>
 			</div>
 		</>
@@ -123,9 +122,7 @@ export const PymeView = () => {
 				<PymeProfile entity={pymeEntity} />
 			</div>
 			<hr />
-			<div className="container">
-				<Comment />
-			</div>
+			<div className="container" />
 		</div>
 	);
 };

@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, useContext, useEffect } from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 
 const mapStyles = {
@@ -7,46 +8,43 @@ const mapStyles = {
 	height: "100%"
 };
 
-export class MapContainer2 extends Component {
-	constructor(props) {
-		super(props);
+export const MapContainer2 = props => {
+	const { store, actions } = useContext(Context);
 
-		this.state = {
-			cords: [{ lat: 10.313549, lng: -84.8156485 }]
-		};
-	}
+	useEffect(() => {
+		actions.loadLocation();
+	}, []);
 
-	showMarkers = () => {
-		return this.state.cords.map((store, index) => {
-			return (
-				<Marker
-					key={index}
-					id={index}
-					position={{
-						lat: store.lat,
-						lng: store.lng
-					}}
-					onClick={() => console.log("Clicked")}
-				/>
-			);
-		});
+	const latitud = store.location[3].lat;
+	const longitud = store.location[3].lon;
+
+	const cords = store.location;
+
+	const showMarkers = () => {
+		return (
+			<Marker
+				position={{
+					lat: latitud,
+					lng: longitud
+				}}
+				onClick={() => console.log("Clicked")}
+			/>
+		);
 	};
 
-	render() {
-		return (
-			<Map
-				google={this.props.google}
-				zoom={12}
-				style={mapStyles}
-				initialCenter={{
-					lat: 10.313549,
-					lng: -84.8156485
-				}}>
-				{this.showMarkers()}
-			</Map>
-		);
-	}
-}
+	return (
+		<Map
+			google={props.google}
+			zoom={12}
+			style={mapStyles}
+			initialCenter={{
+				lat: latitud,
+				lng: longitud
+			}}>
+			{showMarkers()}
+		</Map>
+	);
+};
 
 export default GoogleApiWrapper({
 	apiKey: ""
