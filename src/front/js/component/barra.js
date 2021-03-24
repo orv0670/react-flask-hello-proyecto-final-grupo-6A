@@ -1,6 +1,6 @@
 import React, { useContext, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Button, Dropdown } from "react-bootstrap";
+import { Navbar, Button, Dropdown, NavDropdown } from "react-bootstrap";
 import logo from "../../img/logo.png";
 import { Context } from "../store/appContext";
 
@@ -52,6 +52,24 @@ export function Barra() {
 						</Link>
 					</Navbar.Text>
 				</Button>
+				<Dropdown>
+					<Dropdown.Toggle variant="outline" style={{ color: "#090a" }}>
+						Destino
+					</Dropdown.Toggle>
+					<Dropdown.Menu>
+						<Link to="/viewgeneral/playa">
+							<Dropdown.Item style={{ color: "#090a" }} href="#/action-1">
+								Playa
+							</Dropdown.Item>
+						</Link>
+						<Link to="/viewgeneral/montana">
+							<Dropdown.Item style={{ color: "#090a" }} href="#/action-2">
+								Montaña
+							</Dropdown.Item>
+						</Link>
+					</Dropdown.Menu>
+				</Dropdown>
+
 				{isLoggedIn ? (
 					<Dropdown>
 						<Dropdown.Toggle variant="" id="dropdown-basic" style={{ width: "145px", marginRight: "33px" }}>
