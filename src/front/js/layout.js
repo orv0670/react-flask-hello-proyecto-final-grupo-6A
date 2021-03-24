@@ -14,7 +14,7 @@ import { Comment } from "./component/comment";
 import { CarruseldeVista } from "./component/carruseldeVista";
 import { Barra } from "./component/barra";
 import { Footer } from "./component/footer";
-import MapContainer from "./component/mapa";
+import MapContainer from "./component/mapaPlaya";
 
 //create your first component
 const Layout = () => {

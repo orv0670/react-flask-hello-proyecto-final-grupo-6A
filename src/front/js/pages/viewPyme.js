@@ -4,7 +4,8 @@ import "../../styles/home.scss";
 //import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
-import MapContainer from "../component/mapa";
+import MapContainer from "../component/mapaPlaya";
+import MapContainer2 from "../component/mapaMontana";
 import Comentarios from "../component/disqus";
 import Comment from "../component/comment";
 
@@ -38,7 +39,7 @@ const PymeProfile = ({ entity }) => {
 						<p>{entity.descripcion}</p>
 					</div>
 					<div className="col-sm-12 col-md-4 col-lg-4">
-						<MapContainer />
+						{entity.tipo === "playa" ? <MapContainer /> : <MapContainer2 />}
 					</div>
 				</div>
 				<div className="row" style={{ paddingLeft: "14px" }}>

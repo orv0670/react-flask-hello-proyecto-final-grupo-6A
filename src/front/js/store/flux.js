@@ -48,8 +48,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				)
 					.then(res => res.json())
 					.then(data => {
-						setStore({ location: data });
-						console.log(data);
+						const store = getStore();
+						data.elements.map(each => {
+							setStore({ location: [...store.location, each] });
+						});
 					});
 			},
 			addToPassport: (user_id, id_pyme) => {

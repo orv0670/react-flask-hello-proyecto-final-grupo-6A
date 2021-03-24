@@ -7,17 +7,12 @@ const mapStyles = {
 	height: "100%"
 };
 
-export class MapContainer extends Component {
+export class MapContainer2 extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			cords: [
-				{ lat: 9.8739146, lng: -85.5294764 },
-				{ lat: 9.878, lng: -85.534 },
-				{ lat: 9.8696866, lng: -85.5071604 },
-				{ lat: 9.88208, lng: -85.52709 }
-			]
+			cords: [{ lat: 10.313549, lng: -84.8156485 }]
 		};
 	}
 
@@ -44,8 +39,8 @@ export class MapContainer extends Component {
 				zoom={12}
 				style={mapStyles}
 				initialCenter={{
-					lat: 9.8739146,
-					lng: -85.5294764
+					lat: 10.313549,
+					lng: -84.8156485
 				}}>
 				{this.showMarkers()}
 			</Map>
@@ -55,8 +50,8 @@ export class MapContainer extends Component {
 
 export default GoogleApiWrapper({
 	apiKey: ""
-})(MapContainer);
+})(MapContainer2);
 
-MapContainer.propTypes = {
+MapContainer2.propTypes = {
 	google: PropTypes.object
 };

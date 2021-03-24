@@ -38,7 +38,7 @@ export const Recuperar = () => {
 			.then(res => res.json())
 			.then(data => {
 				console.log("Cambio de contraseña exitoso");
-				setRedirect(true);
+				// setRedirect(true);
 			})
 			.catch(error => {
 				console.error("Error:", error);
@@ -57,7 +57,7 @@ export const Recuperar = () => {
 				marginBottom: "36px",
 				background: "#E9E8E8"
 			}}>
-			<form style={{ width: "400px" }}>
+			<form style={{ width: "400px" }} onSubmit={e => handleSubmit(e)}>
 				<h1 style={{ paddingBottom: "60px" }}>Recupera la contraseña</h1>
 				<div className="form-floating mb-3">
 					<h5>Ingresa aquí el correo electrónico</h5>
@@ -93,7 +93,7 @@ export const Recuperar = () => {
 				<div className="form-floating mb-3">
 					<h5>Ingresa aquí su nueva contraseña</h5>
 					<input
-						type="fullName"
+						type="password"
 						className="form-control"
 						id="floatingInput"
 						placeholder="nueva contraseña"
@@ -106,7 +106,7 @@ export const Recuperar = () => {
 				<div className="form-floating mb-3">
 					<h5>Confirme su nueva contraseña</h5>
 					<input
-						type="fullName"
+						type="password"
 						className="form-control"
 						id="floatingInput"
 						placeholder="nueva contraseña"
