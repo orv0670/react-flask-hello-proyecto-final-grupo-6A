@@ -10,7 +10,7 @@ export const Footer = () => (
 				<div className="container">
 					<div className="row">
 						<div className="col-sm-6 col-md-3 item">
-							<h3>Hospedaje</h3>
+							<h3>Destinos</h3>
 							<ul>
 								<Link to="/viewgeneral/playa">
 									<li>
