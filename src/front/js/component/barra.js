@@ -59,7 +59,7 @@ export function Barra() {
 							<Dropdown.Toggle
 								variant=""
 								id="dropdown-basic"
-								style={{ width: "145px", marginRight: "33px" }}>
+								style={{ width: "145px", marginRight: "33px", color: "#090a", fontSize: "21px" }}>
 								<i className="fas fa-user mr-2" />
 								{store.userName}
 							</Dropdown.Toggle>
