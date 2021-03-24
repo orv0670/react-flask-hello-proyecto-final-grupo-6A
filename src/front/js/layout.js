@@ -14,7 +14,6 @@ import { Comment } from "./component/comment";
 import { CarruseldeVista } from "./component/carruseldeVista";
 import { Barra } from "./component/barra";
 import { Footer } from "./component/footer";
-import MapContainer from "./component/mapa";
 import PrivateRoute from "./component/privateRoute";
 
 //create your first component
