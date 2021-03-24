@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import pasos from "../../img/pasos.png";
 
 import { Context } from "../store/appContext";
 import { Carrusel } from "../component/carrusel";
@@ -14,7 +15,7 @@ export const Home = () => {
 				<Carrusel />
 			</div>
 			<div className="container">
-				<ComponenteInf />
+				<img src={pasos} />
 			</div>
 		</div>
 	);

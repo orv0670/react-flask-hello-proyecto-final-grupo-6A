@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { CarruseldeVista } from "../component/carruseldeVista";
+import { JumboCard } from "../component/jumbocard";
 import { Card } from "../component/Card";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
@@ -22,8 +23,14 @@ export function ViewGeneral() {
 	);
 
 	return (
-		<div className="text-center container-fluid">
-			<CarruseldeVista type={type} />
+		<div className="text-center">
+			<div>
+				<CarruseldeVista type={type} />
+			</div>
+
+			<div className="container mt-5">
+				<JumboCard type={type} />
+			</div>
 			<div className="row px-1 my-5">
 				{data.map((value, index) => {
 					return (
