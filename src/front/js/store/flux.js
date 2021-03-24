@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			location: [],
 			pymeEntity: {},
 			myPassport: [],
-			userName: ""
+			userName: sessionStorage.getItem("name") || ""
 		},
 
 		actions: {

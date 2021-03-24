@@ -109,8 +109,6 @@ export const ComponenteInf = () => {
 					alt="Generic placeholder"
 				/>
 			</Media>
-			<br />
-			<img src={about} height="600px" />
 		</div>
 	);
 };

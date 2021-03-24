@@ -1,23 +1,14 @@
 //import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import React, { useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 export const Register = () => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [nombre_completo, setnombre_completo] = useState("");
-	const [respuesta_de_seguridad, setrespuesta_de_seguridad] = useState("");
 	const [redirect, setRedirect] = useState(false);
+	// const { actions } = useContext(Context);
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		if (email === "" || password === "" || nombre_completo === "" || respuesta_de_seguridad === "") {
-			alert(
-				"email, contraseña, nombre completo y pregunta de seguridad son requeridos! por favor intentelo de nuevo!"
-			);
-		}
-		console.log(email, password, nombre_completo, respuesta_de_seguridad);
-
+	/*const handleSubmit = e => {
 		//FETCH
 		const data = {
 			email: email,
@@ -25,12 +16,15 @@ export const Register = () => {
 			nombre_completo: nombre_completo,
 			respuesta_de_seguridad: respuesta_de_seguridad
 		};
+        
+        */
+	const onHandleSubmit = values => {
 		fetch(process.env.BACKEND_URL + "/api/registro", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
 			},
-			body: JSON.stringify(data)
+			body: JSON.stringify(values)
 		})
 			.then(response => response.json())
 			.then(data => {
@@ -41,6 +35,29 @@ export const Register = () => {
 				console.error("Error:", error);
 			});
 	};
+
+	const formik = useFormik({
+		initialValues: {
+			nombre_completo: "",
+			email: "",
+			password: "",
+			respuesta_de_seguridad: "",
+			condicionesAceptadas: []
+		},
+		validationSchema: Yup.object({
+			nombre_completo: Yup.string().required("Required"),
+			email: Yup.string()
+				.email("Invalid email address")
+				.required("Required"),
+			password: Yup.string().required("Required"),
+			respuesta_de_seguridad: Yup.string().required("Required"),
+			condicionesAceptadas: Yup.array().min(1, "Debes aceptar las condiciones")
+		}),
+		onSubmit: values => {
+			onHandleSubmit(values);
+			setSubmitting(false);
+		}
+	});
 
 	return (
 		<div
@@ -54,49 +71,64 @@ export const Register = () => {
 				marginBottom: "36px",
 				background: "#E9E8E8"
 			}}>
-			<form style={{ width: "400px" }} onSubmit={e => handleSubmit(e)}>
+			<form noValidate style={{ width: "400px" }} onSubmit={formik.handleSubmit}>
 				<h1 style={{ paddingBottom: "60px" }}>Bienvenidos a la aventura</h1>
 				<div className="form-floating mb-3">
 					<input
-						type="fullName"
-						className="form-control"
+						type="text"
+						className={`form-control ${formik.errors.nombre_completo ? "is-invalid" : ""}`}
 						id="floatingInput"
 						placeholder="Ingrese su nombre y apellido"
-						onChange={e => setnombre_completo(e.target.value)}
+						onChange={formik.handleChange}
+						name="nombre_completo"
 					/>
+					<div className="invalid-feedback">{formik.errors.nombre_completo}</div>
 				</div>
 				<div className="form-floating mb-3">
 					<input
 						type="email"
-						className="form-control"
+						className={`form-control ${formik.errors.email ? "is-invalid" : ""}`}
 						id="floatingInput"
 						placeholder="name@example.com"
-						onChange={e => setEmail(e.target.value)}
+						onChange={formik.handleChange}
+						name="email"
 					/>
+					<div className="invalid-feedback">{formik.errors.email}</div>
 				</div>
 				<div className="form-floating" style={{ marginBottom: "35px" }}>
 					<input
 						type="password"
-						className="form-control"
+						className={`form-control ${formik.errors.password ? "is-invalid" : ""}`}
 						id="floatingPassword"
 						placeholder="Enter a password"
-						onChange={e => setPassword(e.target.value)}
+						onChange={formik.handleChange}
+						name="password"
 					/>
+					<div className="invalid-feedback">{formik.errors.password}</div>
 					<div className="form-floating mb-3" style={{ marginTop: "17px" }}>
 						<input
-							type="respuestaDeSeguridad"
-							className="form-control"
+							type="respuesta_de_seguridad"
+							className={`form-control ${formik.errors.respuesta_de_seguridad ? "is-invalid" : ""}`}
 							id="floatingInput"
 							placeholder="¿Cuál era el nombre de tu primera mascota?"
-							onChange={e => setrespuesta_de_seguridad(e.target.value)}
+							onChange={formik.handleChange}
+							name="respuesta_de_seguridad"
 						/>
+						<div className="invalid-feedback">{formik.errors.respuesta_de_seguridad}</div>
 					</div>
 					<div className="form-group">
 						<div className="form-check">
-							<input className="form-check-input" type="checkbox" id="gridCheck" />
+							<input
+								className={`form-check-input ${formik.errors.condicionesAceptadas ? "is-invalid" : ""}`}
+								type="checkbox"
+								id="gridCheck"
+								onChange={formik.handleChange}
+								name="condicionesAceptadas"
+							/>
 							<label className="form-check-label" htmlFor="gridCheck">
 								Estoy de acuerdo con los términos y condiciones.
 							</label>
+							<div className="invalid-feedback">{formik.errors.condicionesAceptadas}</div>
 						</div>
 					</div>
 				</div>
