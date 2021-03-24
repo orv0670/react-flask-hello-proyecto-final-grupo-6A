@@ -14,7 +14,7 @@ import { Comment } from "./component/comment";
 import { CarruseldeVista } from "./component/carruseldeVista";
 import { Barra } from "./component/barra";
 import { Footer } from "./component/footer";
-import MapContainer from "./component/mapa";
+import PrivateRoute from "./component/privateRoute";
 
 //create your first component
 const Layout = () => {
@@ -35,9 +35,7 @@ const Layout = () => {
 					<Route exact path="/viewPyme/:id">
 						<PymeView />
 					</Route>
-					<Route exact path="/viewPassport">
-						<ViewPassport />
-					</Route>
+					<PrivateRoute exact path="/viewPassport" component={ViewPassport} />
 					<div
 						style={{
 							backgroundImage:

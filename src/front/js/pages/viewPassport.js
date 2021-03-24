@@ -30,13 +30,15 @@ export const ViewPassport = () => {
 	console.log("passport", passport);
 	return (
 		<div>
-			<div style={{ width: "100%" }}>
+			<div className="mb-5" style={{ width: "100%" }}>
 				<Advertisement />
 			</div>
-			<div className="m-3">
-				<h1>Colección de Sellos</h1>
+			<div className="mt-5 ml-3">
+				<h1 className="display-3">
+					<strong>Colección de Sellos</strong>
+				</h1>
+				<hr />
 			</div>
-			<hr />
 			<div>
 				<div className="row px-1 my-5">
 					{passport.map((value, index) => {

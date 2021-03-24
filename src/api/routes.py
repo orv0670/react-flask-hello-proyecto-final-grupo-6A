@@ -141,6 +141,39 @@ def login():
 
         return jsonify(data), 200
 
+@api.route("/reset", methods=["POST"])
+def recuperar_password():
+    if request.method == "POST":
+        email = request.json["email"]
+        new_password = request.json["new_password"]
+        #security_question = request.json["security_question"]
+        respuesta_de_seguridad = request.json["respuesta_de_seguridad"]
+        print(respuesta_de_seguridad)
+        #validacion
+        if not (email and new_password and respuesta_de_seguridad):
+            return jsonify({"error": "Parametros invalidos"}), 400
+        
+        user = User.query.filter_by(email=email).first()
+        #respuesta_de_seguridad = User
+
+        if not user:
+            return jsonify({"error": "usuario invalido"}), 400
+        
+        """if user.security_question != security_question:
+            return jsonify({"error": "Invalid parameter"}), 400"""
+
+        if(user.respuesta_de_seguridad != respuesta_de_seguridad):
+            return jsonify({"error": "la respuesta de seguridad no conside con la base de datos", 
+            "base de datos": user.respuesta_de_seguridad, "metodo": respuesta_de_seguridad})
+        
+        #crear la nueva contraseña
+        nueva_password_hashed = generate_password_hash(new_password)
+        user.password = nueva_password_hashed
+        db.session.commit()
+        return jsonify({"msg": "contraseña cambiada con exito!"})
+        
+        
+
 #bloque de metodo DELETE
 @api.route('/mi_pasaporte/<int:user_id>/<id_pyme>', methods=['DELETE'])
 @jwt_required()
