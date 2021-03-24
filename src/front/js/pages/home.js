@@ -13,9 +13,6 @@ export const Home = () => {
 			<div>
 				<Carrusel />
 			</div>
-			<div className="container">
-				<ComponenteInf />
-			</div>
 		</div>
 	);
 };
