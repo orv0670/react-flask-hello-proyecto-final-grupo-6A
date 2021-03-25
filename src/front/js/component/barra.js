@@ -36,7 +36,7 @@ export function Barra() {
 				)}
 				<Button variant="outline-lights">
 					<Navbar.Text>
-						<Link to="/">
+						<Link to="/viewAboutUs">
 							<a style={{ color: "#090a" }} href="#login">
 								About Us
 							</a>

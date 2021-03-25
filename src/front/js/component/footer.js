@@ -44,7 +44,9 @@ export const Footer = () => (
 							</Link>
 						</div>
 						<div className="col-md-6 item text">
-							<h3>About Us</h3>
+							<Link to="/viewAboutUs">
+								<h3>About Us</h3>
+							</Link>
 							<p>
 								Somos una plataforma que busca dar soporte a todas aquellas micro y mediana empresas de
 								turismo en Costa Rica, para anunciar sus negocios.

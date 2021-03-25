@@ -16,6 +16,7 @@ import { Barra } from "./component/barra";
 import { Footer } from "./component/footer";
 import PrivateRoute from "./component/privateRoute";
 import { CostaRicaInfo } from "./pages/costaRicaInfo";
+import { AboutUsP } from "./pages/viewAboutUs";
 
 //create your first component
 const Layout = () => {
@@ -32,6 +33,9 @@ const Layout = () => {
 					</Route>
 					<Route exact path="/costaRicaInfo">
 						<CostaRicaInfo />
+					</Route>
+					<Route exact path="/viewAboutUs">
+						<AboutUsP />
 					</Route>
 					<Route exact path="/viewGeneral/:type">
 						<ViewGeneral />
