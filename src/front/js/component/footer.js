@@ -44,7 +44,7 @@ export const Footer = () => (
 							</Link>
 						</div>
 						<div className="col-md-6 item text">
-							<Link to="/viewAboutUs">
+							<Link to="/viewAboutUs" style={{ color: "white", textDecoration: "none" }}>
 								<h3>About Us</h3>
 							</Link>
 							<p>

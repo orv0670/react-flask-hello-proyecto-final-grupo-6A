@@ -17,6 +17,7 @@ import { Footer } from "./component/footer";
 import PrivateRoute from "./component/privateRoute";
 import { CostaRicaInfo } from "./pages/costaRicaInfo";
 import { AboutUsP } from "./pages/viewAboutUs";
+import ScrollToTop from "./component/scrollToTop";
 
 //create your first component
 const Layout = () => {
@@ -26,47 +27,48 @@ const Layout = () => {
 	return (
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
-				<Barra />
-				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
-					<Route exact path="/costaRicaInfo">
-						<CostaRicaInfo />
-					</Route>
-					<Route exact path="/viewAboutUs">
-						<AboutUsP />
-					</Route>
-					<Route exact path="/viewGeneral/:type">
-						<ViewGeneral />
-					</Route>
-					<Route exact path="/viewPyme/:id">
-						<PymeView />
-					</Route>
-					<PrivateRoute exact path="/viewPassport" component={ViewPassport} />
-					<div
-						style={{
-							backgroundImage:
-								"url('https://wallpapersplanet.net/sites/default/files/costa-rica-wallpapers-36777-877629.png')",
-							height: "100%",
-							opacity: "0.7"
-						}}>
-						<Route exact path="/login">
-							<Login />
+				<ScrollToTop>
+					<Barra />
+					<Switch>
+						<Route exact path="/">
+							<Home />
 						</Route>
-						<Route exact path="/register">
-							<Register />
+						<Route exact path="/costaRicaInfo">
+							<CostaRicaInfo />
 						</Route>
-						<Route exact path="/recuperar">
-							<Recuperar />
+						<Route exact path="/viewAboutUs">
+							<AboutUsP />
 						</Route>
-						<Route exact path="/newPassword">
-							<NewPassword />
+						<Route exact path="/viewGeneral/:type">
+							<ViewGeneral />
 						</Route>
-					</div>
-				</Switch>
-
-				<Footer />
+						<Route exact path="/viewPyme/:id">
+							<PymeView />
+						</Route>
+						<PrivateRoute exact path="/viewPassport" component={ViewPassport} />
+						<div
+							style={{
+								backgroundImage:
+									"url('https://wallpapersplanet.net/sites/default/files/costa-rica-wallpapers-36777-877629.png')",
+								height: "100%",
+								opacity: "0.7"
+							}}>
+							<Route exact path="/login">
+								<Login />
+							</Route>
+							<Route exact path="/register">
+								<Register />
+							</Route>
+							<Route exact path="/recuperar">
+								<Recuperar />
+							</Route>
+							<Route exact path="/newPassword">
+								<NewPassword />
+							</Route>
+						</div>
+					</Switch>
+					<Footer />
+				</ScrollToTop>
 			</BrowserRouter>
 		</div>
 	);
