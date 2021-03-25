@@ -25,8 +25,8 @@ export const AboutUs = () => {
 						Como sabemos la pandemia por el COVID-19 ha traído muchos nuevos retos, entre unos de los más
 						importantes se encuentra la reactivación de la economía. Por lo que creamos Pura Vida Passport
 						no solo como una forma más de conectar empresa con visitante, sino para crear una tendencia y
-						necesidad de los viajeros y que esto a su vez encadene a la reactivación de la economía de las
-						empresas afiliadas a nuestra plataforma.
+						necesidad de los viajeros, para que esto a su vez encadene a la reactivación de la economía de
+						las empresas afiliadas a nuestra plataforma.
 					</p>
 					<h2 className="display-4 mt-5">¿Cómo hacerlo posible?</h2>
 					<hr />
