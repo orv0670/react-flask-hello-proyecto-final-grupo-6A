@@ -14,14 +14,14 @@ export const Home = () => {
 			<div>
 				<Carrusel />
 			</div>
-			<div style={{ width: "1042px", margin: "0 auto", marginTop: "108px" }}>
-				<div>
-					<h1 className="display-3" style={{ textAlign: "center" }}>
+			<div style={{ width: "80%", margin: "0 auto", marginTop: "108px" }}>
+				<div className="row">
+					<h1 className="display-3" style={{ textAlign: "center", margin: "0 auto" }}>
 						Pura Vida Passport
 					</h1>
 				</div>
 				<hr />
-				<div className="mt-5" style={{ textAlign: "center" }}>
+				<div className="row mt-5" style={{ textAlign: "center" }}>
 					<p>
 						Se parte de la comunidad Pura Vida Passport y recolecta todos esos hermosos sellos en tu
 						pasaporte que te harán vivir de nuevo esa experiencia. Además al ser parte de Pura Vida Passport
@@ -32,9 +32,9 @@ export const Home = () => {
 			</div>
 			<div
 				className="container align-items-center"
-				style={{ maxWidth: "1500px", height: "300px", marginTop: "100px" }}>
+				style={{ maxWidth: "1500px", marginTop: "100px", marginBottom: "20px" }}>
 				<div className="row d-flex">
-					<div className="col">
+					<div className="col-sm" style={{ marginBottom: "10px" }}>
 						<div className="media">
 							<img
 								style={{ width: "150px", height: "150px" }}
@@ -42,15 +42,15 @@ export const Home = () => {
 								className="align-self-start mr-3"
 								alt="register"
 							/>
-							<div className="media-body">
-								<h5 className="mt-0">
+							<div className="media-body" style={{ width: "150px" }}>
+								<h5 className="mt-2 mb-2">
 									<strong>Paso 1</strong>
 								</h5>
 								<p>Regístrese así podrás conocer más de Costa Rica y disfrutar de descuentos.</p>
 							</div>
 						</div>
 					</div>
-					<div className="col">
+					<div className="col-sm" style={{ marginBottom: "10px" }}>
 						<div className="media">
 							<img
 								style={{ width: "150px", height: "150px" }}
@@ -58,15 +58,15 @@ export const Home = () => {
 								className="align-self-start mr-3 rounded-lg"
 								alt="destino"
 							/>
-							<div className="media-body">
-								<h5 className="mt-0">
+							<div className="media-body" style={{ width: "150px" }}>
+								<h5 className="mt-2 mb-2">
 									<strong>Paso 2</strong>
 								</h5>
 								<p>Elige entre playa y montaña cuál será tu próxima aventura.</p>
 							</div>
 						</div>
 					</div>
-					<div className="col">
+					<div className="col-sm" style={{ marginBottom: "10px" }}>
 						<div className="media">
 							<img
 								style={{ width: "150px", height: "150px" }}
@@ -74,8 +74,8 @@ export const Home = () => {
 								className="align-self-start mr-3 rounded-lg"
 								alt="..."
 							/>
-							<div className="media-body">
-								<h5 className="mt-0">
+							<div className="media-body" style={{ width: "150px" }}>
+								<h5 className="mt-2 mb-2">
 									<strong>Paso 3</strong>
 								</h5>
 								<p>
@@ -85,7 +85,7 @@ export const Home = () => {
 							</div>
 						</div>
 					</div>
-					<div className="col">
+					<div className="col-sm" style={{ marginBottom: "10px" }}>
 						<div className="media">
 							<img
 								style={{ width: "150px", height: "150px" }}
@@ -93,8 +93,8 @@ export const Home = () => {
 								className="align-self-start mr-3 rounded-lg"
 								alt="sello"
 							/>
-							<div className="media-body">
-								<h5 className="mt-0">
+							<div className="media-body" style={{ width: "150px" }}>
+								<h5 className="mt-2 mb-2">
 									<strong>Paso 4</strong>
 								</h5>
 								<p>Solicita tu sello y colecciona experiencias.</p>
