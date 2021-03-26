@@ -15,14 +15,14 @@ export function Barra() {
 		actions.clearUserName();
 	});
 	return (
-		<Navbar bg="light" variant="light">
+		<Navbar bg="light" variant="light" expand="lg">
 			<Link to="/">
 				<Navbar.Brand href="#home">
-					<img style={{ marginLeft: 60 }} src={logo} height="120px" />
+					<img src={logo} style={{ maxWidth: "95px" }} />
 				</Navbar.Brand>
 			</Link>
-			<Navbar.Toggle />
-			<Navbar.Collapse className="justify-content-end">
+			<Navbar.Toggle aria-controls="basic-navbar-nav" />
+			<Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
 				{!isLoggedIn && (
 					<Button style={{ marginRight: 10 }} variant="outline-light">
 						<Navbar.Text>
@@ -36,7 +36,7 @@ export function Barra() {
 				)}
 				<Button variant="outline-lights">
 					<Navbar.Text>
-						<Link to="/">
+						<Link to="/viewAboutUs">
 							<a style={{ color: "#090a" }} href="#login">
 								About Us
 							</a>
@@ -53,8 +53,8 @@ export function Barra() {
 					</Navbar.Text>
 				</Button>
 
-				<Dropdown>
-					<Dropdown.Toggle variant="outline" style={{ color: "#090a" }}>
+				<Dropdown style={{ display: "inline-block" }}>
+					<Dropdown.Toggle id="basic-nav-dropdown" variant="outline" style={{ color: "#090a" }}>
 						Destino
 					</Dropdown.Toggle>
 					<Dropdown.Menu>
