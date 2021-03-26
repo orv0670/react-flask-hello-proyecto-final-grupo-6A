@@ -43,6 +43,15 @@ export function Barra() {
 						</Link>
 					</Navbar.Text>
 				</Button>
+				<Button variant="outline-lights">
+					<Navbar.Text>
+						<Link to="/costaRicaInfo">
+							<a style={{ color: "#090a" }} href="#login">
+								Costa Rica
+							</a>
+						</Link>
+					</Navbar.Text>
+				</Button>
 
 				<Dropdown>
 					<Dropdown.Toggle variant="outline" style={{ color: "#090a" }}>
@@ -83,7 +92,9 @@ export function Barra() {
 							</Dropdown.Toggle>
 							<Dropdown.Menu>
 								<Link to="/" onClick={onLogout}>
-									<Dropdown.Item href="#/action-1">Logout</Dropdown.Item>
+									<Dropdown.Item href="#/action-1" style={{ color: "#090a" }}>
+										Logout
+									</Dropdown.Item>
 								</Link>
 							</Dropdown.Menu>
 						</Dropdown>

@@ -38,7 +38,7 @@ export const Recuperar = () => {
 			.then(res => res.json())
 			.then(data => {
 				console.log("Cambio de contraseña exitoso");
-				// setRedirect(true);
+				setRedirect(true);
 			})
 			.catch(error => {
 				console.error("Error:", error);

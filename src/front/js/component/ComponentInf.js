@@ -7,16 +7,12 @@ import dos from "../../img/dos.png";
 import tres from "../../img/tres.png";
 import cuatro from "../../img/cuatro.png";
 import about from "../../img/about.png";
+import { Autoplay } from "swiper";
 
 export const ComponenteInf = () => {
 	return (
 		<div style={{ marginTop: 100 }}>
-			<img src={titulo} height="300px" className="mt-5" />
-			<br />
-			<br />
-			<br />
-
-			<br />
+			<img src={titulo} height="300px" className="mb-5" style={{ maxWidth: "100%", marginLeft: "100px" }} />
 			<Media id="caja">
 				<img src={uno} height="300px" width="300px" className="mr-3 rounded-circle" alt="Generic placeholder" />
 				<Media.Body>

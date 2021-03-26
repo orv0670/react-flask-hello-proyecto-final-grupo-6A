@@ -24,22 +24,24 @@ export const Footer = () => (
 								</Link>
 							</ul>
 						</div>
-						<div className="col-sm-6 col-md-3 item">
-							<h3>Visita Costa Rica</h3>
-							<ul>
-								<li>
-									<a href="#">Información</a>
-								</li>
-								<li>
-									<a href="#">Comida típicas</a>
-								</li>
-								<li>
-									<a href="#">Actividades</a>
-								</li>
-								<li>
-									<a href="#">Cultura</a>
-								</li>
-							</ul>
+						<div className="col-sm-6 col-md-3 item ">
+							<Link to="/costaRicaInfo" style={{ color: "white", textDecoration: "none" }}>
+								<h3>Costa Rica Información</h3>
+								<ul>
+									<li>
+										<a href="#">Información</a>
+									</li>
+									<li>
+										<a href="#">Gastronomía</a>
+									</li>
+									<li>
+										<a href="#">Aventura</a>
+									</li>
+									<li>
+										<a href="#">Cultura</a>
+									</li>
+								</ul>
+							</Link>
 						</div>
 						<div className="col-md-6 item text">
 							<h3>About Us</h3>
